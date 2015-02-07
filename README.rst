@@ -2,9 +2,6 @@
 2lazy2rest
 ##########
 
-Goal
-####
-
 A simple way to produce short-to-medium document using *reStructuredText*
 
 Multi-format themes
@@ -65,4 +62,11 @@ Example
    popo:~/2lazy2rest% cp -r themes/default themes/red
    popo:~/2lazy2rest% sed -si 's/#FEFEFE/red/g' themes/red/html/stylesheet.css
    popo:~/2lazy2rest% ./mkrst test_page.rst --html --theme red
+
+Issues
+######
+
+- ODT style is unfinished
+- PDF & HTML still needs more ReST coverage
+- No skin generation from template yet
 
