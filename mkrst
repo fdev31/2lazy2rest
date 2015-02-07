@@ -112,7 +112,7 @@ if __name__ == '__main__':
     cmd.set_theme(args.themes_dir, args.theme)
 
     if not any(getattr(args, fmt) for fmt in SUPPORTED_FORMATS):
-        print("No action ! Give on or more --(%s)"%'|'.join( SUPPORTED_FORMATS))
+        print("No action ! Give one or more --(%s)"%'|'.join( SUPPORTED_FORMATS))
     else:
         for fmt in SUPPORTED_FORMATS:
             if getattr(args, fmt):
