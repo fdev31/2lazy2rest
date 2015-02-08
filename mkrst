@@ -1,12 +1,14 @@
 #!/usr/bin/env python
-
-THEMES_DIR="./themes"
-THEME="default"
-SUPPORTED_FORMATS = 'html pdf odt'.split()
+from __future__ import print_function
 
 import os
 import argparse
 import subprocess
+import mkrst_themes
+
+THEMES_DIR=os.path.dirname(mkrst_themes.__file__)
+THEME="default"
+SUPPORTED_FORMATS = 'html pdf odt'.split()
 
 DEBUG='DEBUG' in os.environ
 
