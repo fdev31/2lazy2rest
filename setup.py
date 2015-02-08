@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="2lazy2rest",
-    version="0.1",
+    version="0.1.0",
     author="Fabien Devaux",
     author_email="fdev31@gmail.com",
     license="MIT",
