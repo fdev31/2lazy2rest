@@ -1,0 +1,1 @@
+recursive-include mkrst_themes *.css *.odt *.html *.style
