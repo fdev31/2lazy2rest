@@ -294,8 +294,9 @@
 
     rubric:
       parent: bodytext
-      textColor: darkred
+      textColor: #666666
       alignment: TA_CENTER
+      fontName: stdBold
 
     italic:
       parent: bodytext

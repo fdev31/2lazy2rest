@@ -60,7 +60,7 @@ span.grey {
 }
 div.section > table.field-list > tbody > tr.field > th.field-name {
     text-align: right;
-    padding: .1ex 1ex;
+    padding: .1ex 1em;
     color: #333;
 }
 dd > table.field-list > tbody > tr.field > th.field-name {
@@ -118,6 +118,14 @@ pre.literal-block {
     padding: 0;
     margin: 0;
     color: #666;    
+}
+h2.subtitle {
+    text-align: center;
+}
+.rubric {
+    color: #666;
+    font-weight: bold;
+    text-align: center;
 }
 .sidebar-subtitle {
 }
