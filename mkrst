@@ -6,7 +6,12 @@ import argparse
 import subprocess
 import mkrst_themes
 
-THEMES_DIR=os.path.dirname(mkrst_themes.__file__)
+
+try:
+    THEMES_DIR=os.path.dirname(mkrst_themes.__file__)
+except AttributeError:
+    THEMES_DIR=mkrst_themes.__path__._path[0]
+
 THEME="default"
 SUPPORTED_FORMATS = 'html pdf odt'.split()
 
