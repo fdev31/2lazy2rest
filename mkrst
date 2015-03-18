@@ -24,6 +24,7 @@ class CommandExecutor:
     def __init__(self, opts):
         self._src = opts.input
         self._verbose = opts.verbose
+        self._extensions = opts.ext
 
     def set_theme(self, path, name):
         self.theme_dir = os.path.join(path, name)
@@ -68,6 +69,8 @@ class CommandExecutor:
         args = ['rst2pdf', '--real-footnotes'] + opts
         for style in self._list_resources('pdf', '.style'):
             args.extend(('-s', style))
+        if self._extensions:
+            args.extend(('-e', self._extensions))
         args.extend(('-o', out, self._src))
         if self.__execute(args):
             print(out)
@@ -112,6 +115,9 @@ if __name__ == '__main__':
 
     parser.add_argument('--themes-dir', type=str, default=THEMES_DIR,
             help='Change the folder searched for theme')
+
+    parser.add_argument('--ext', type=str, default='',
+            help='Load docutils extensions (coma separated)')
 
     args = parser.parse_args()
 
