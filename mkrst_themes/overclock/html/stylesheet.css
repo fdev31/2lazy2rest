@@ -1,0 +1,216 @@
+body {
+    font-family: 'Overclock', cursive;
+    margin: 1ex 10% 1ex 10%;
+/*    background: #EEE;*/
+    background: #FEFEFE;
+    max-width: 100ex;
+    margin: 0 auto;
+    padding: 2em;
+}
+a {
+    color: #444499;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+h1.title {
+    text-align: center;
+}
+h1, h2 {
+    clear: both;
+}
+
+h2, h3, h4, h5 {
+    color: #555555;
+}
+h2 {
+    margin-left: -2ex;
+}
+h3 {
+    margin-left: -1ex;
+}
+h5 {
+    margin-left: .5ex;
+}
+h6 {
+    color: #777777;
+    margin-left: 1ex;
+}
+dt {
+    color: #333333;
+    font-weight: bold;
+}
+dd > dl > dt {
+    color: #444;
+}
+p.details {
+    float: right;
+    clear: both;
+    margin: 0 1ex .2ex 0;
+}
+span.grey {
+    color: grey;
+}
+.footnote {
+    float: left;
+    opacity: 0.5;
+    margin-right: 1ex;
+    margin-bottom: 1ex;
+}
+div.section > table.field-list > tbody > tr.field > th.field-name {
+    text-align: right;
+    padding: .1ex 1em;
+    color: #333;
+}
+dd > table.field-list > tbody > tr.field > th.field-name {
+    text-align: left;
+}
+div.section {
+    margin-bottom: 1em;
+}
+
+table[class=docutils] {
+    border-spacing: 0;
+    border: solid 1px black;
+    width: 100%;
+}
+
+table[class=docutils] tr:nth-child(odd) {
+    background: white;
+}
+table[class=docutils] tr:nth-child(even) {
+    background: #F0F0F8;
+}
+table[class=docutils] td {
+    border: none;
+    border-right: solid 1px #AAA;
+    border-top: solid 1px #AAA;
+    padding: 0 1ex;
+}
+table[class=docutils] td:last-child {
+    border-right: none;
+}
+table[class=docutils] th {
+    border: none;
+    border-right: solid 1px #AAA;
+    background: #cadef2;
+}
+table[class=docutils] th:last-child {
+    border-right: none;
+}
+pre.literal-block {
+    padding: 1ex;
+    border-radius: 2px;
+    border: solid 2px #666666;
+    background-color: #EFEFEF;
+}
+
+.sidebar {
+    float: right;
+    background: #EFEFEF;
+    padding: .5ex;
+    border: solid 1px #666;
+}
+.sidebar-title {
+    font-size: 120%;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+    color: #666;    
+}
+h2.subtitle {
+    text-align: center;
+}
+.rubric {
+    color: #666;
+    font-weight: bold;
+    text-align: center;
+}
+.sidebar-subtitle {
+}
+a.footnote-reference {
+    display: none;
+}
+.docutils.footnote {
+    display: none;
+}
+.note {
+    background-color: #FDFFDC;
+    border: solid 1px #936767;
+    padding: 0 1ex;
+    margin: 1ex 0;
+}
+.attention {
+    background-color: #FFE4F7;
+    border: solid 1px grey;
+    padding: 0 1ex;
+    margin: 1ex 0;
+}
+
+.caution {
+    background-color: #FFB78F;
+    border: solid 1px grey;
+    padding: 0 1ex;
+    margin: 1ex 0;
+}
+
+.danger {
+    background-color: #FF8F8F;
+    border: solid 1px grey;
+    padding: 0 1ex;
+    margin: 1ex 0;
+}
+
+.error {
+    background-color: #FFE7DC;
+    border: solid 1px grey;
+    padding: 0 1ex;
+    margin: 1ex 0;
+}
+
+.hint {
+    background-color: #E9FFDC;
+    border: solid 1px grey;
+    padding: 0 1ex;
+    margin: 1ex 0;
+}
+
+.important {
+    background-color: #FFFBAB;
+    border: solid 1px grey;
+    padding: 0 1ex;
+    margin: 1ex 0;
+}
+
+.note {
+    background-color: #E5F5F3;
+    border: solid 1px grey;
+    padding: 0 1ex;
+    margin: 1ex 0;
+}
+
+.tip {
+    background-color: #BBECBD;
+    border: solid 1px grey;
+    padding: 0 1ex;
+    margin: 1ex 0;
+}
+
+.warning {
+    background-color: #FFCB97;
+    border: solid 1px grey;
+    padding: 0 1ex;
+    margin: 1ex 0;
+}
+
+.admonition {
+    background-color: #FDFFDC;
+    border: solid 1px grey;
+    padding: 0 1ex;
+    margin: 1ex 0;
+}
+.admonition-title {
+    font-weight: bold;
+    color: rgb(51, 51, 51);
+}
