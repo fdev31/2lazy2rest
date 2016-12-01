@@ -66,6 +66,8 @@ class CommandExecutor:
     def make_pdf(self):
         out = self.get_output('pdf')
         opts = [o for o in self.GENERAL_OPTIONS if 'syntax' not in o]
+        opts += ['--font-path', os.path.join(self.theme_dir, 'fonts')]
+
         args = ['rst2pdf', '--real-footnotes'] + opts
         for style in self._list_resources('pdf', '.style'):
             args.extend(('-s', style))

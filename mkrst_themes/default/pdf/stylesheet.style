@@ -67,13 +67,13 @@
         defaultHeader : ###Section###
 
   fontsAlias:
-    stdFont: Philosopher-regular
-    stdBold: Philosopher-bold
-    stdBoldItalic: Philosopher-bolditalic
-    stdSans: Philosopher-regular
-    stdSansBold: Philosopher-bold
-    stdSansItalic: Philosopher-italic
-    stdSansBoldItalic: Philosopher-bolditalic
+    stdFont: Philosopher-Regular
+    stdBold: Philosopher-Bold
+    stdBoldItalic: Philosopher-BoldItalic
+    stdSans: Philosopher-Regular
+    stdSansBold: Philosopher-Bold
+    stdSansItalic: Philosopher-Italic
+    stdSansBoldItalic: Philosopher-BoldItalic
     stdMono: FreeMono
     stdMonoItalic: FreeMonoOblique
     stdMonoBold: FreeMonoBold
@@ -282,6 +282,14 @@
                     [LEFTPADDING, [ 0, 0 ], [ -1, -1 ], 0 ]
                     [BOTTOMPADDING, [ 0, 0 ], [ -1, -1 ], 0 ]
                     [RIGHTPADDING, [ 0, 0 ], [ -1, -1 ], 0 ]
+
+    field-list:
+        parent: bodytext
+        commands: []
+            [VALIGN, [ 0, 0 ], [ -1, -1 ], TOP ]
+            [TOPPADDING, [ 0, 0 ], [ -1, -1 ], 0 ]
+        colWidths: [3.4cm, null]
+        spaceBefore: 6
 
     fieldname:
       parent: bodytext
@@ -601,14 +609,6 @@
             [BOTTOMPADDING, [ 0, 0 ], [ -1, -1 ], 0 ]
             [RIGHTPADDING, [ 0, 0 ], [ 1, -1 ], 0 ]
         colWidths: [3cm, null]
-
-    field-list:
-        parent: bodytext
-        commands: []
-            [VALIGN, [ 0, 0 ], [ -1, -1 ], TOP ]
-            [TOPPADDING, [ 0, 0 ], [ -1, -1 ], 0 ]
-        colWidths: [3cm, null]
-        spaceBefore: 6
 
     option-list:
         commands: []
