@@ -69,11 +69,11 @@
   fontsAlias:
     stdFont: Cantarell-Regular
     stdBold: Cantarell-Bold
-    stdBoldItalic: Cantarell-BoldItalic
+    stdBoldItalic: Cantarell-BoldOblique
     stdSans: Cantarell-Regular
     stdSansBold: Cantarell-Bold
-    stdSansItalic: Cantarell-Italic
-    stdSansBoldItalic: Cantarell-BoldItalic
+    stdSansItalic: Cantarell-Oblique
+    stdSansBoldItalic: Cantarell-BoldOblique
     stdMono: FreeMono
     stdMonoItalic: FreeMonoOblique
     stdMonoBold: FreeMonoBold
