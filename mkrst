@@ -112,7 +112,7 @@ if __name__ == '__main__':
                 help='Generate %s output'%fmt.upper())
 
 
-    parser.add_argument('--theme', type=str, default=THEME,
+    parser.add_argument('-t', '--theme', type=str, default=THEME,
             help='Use a different theme')
 
     parser.add_argument('--themes-dir', type=str, default=THEMES_DIR,
