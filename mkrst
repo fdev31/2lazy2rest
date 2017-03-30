@@ -68,7 +68,7 @@ class CommandExecutor:
         opts = [o for o in self.GENERAL_OPTIONS if 'syntax' not in o]
         opts += ['--font-path', os.path.join(self.theme_dir, 'fonts')]
 
-        args = ['rst2pdf', '--real-footnotes'] + opts
+        args = ['rst2pdf', '--real-footnotes', '-e', 'preprocess'] + opts
         for style in self._list_resources('pdf', '.style'):
             args.extend(('-s', style))
         if self._extensions:
