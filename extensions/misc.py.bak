@@ -12,7 +12,7 @@ _amp_re = re.compile(r'(?<!&)&(?![&\s])')
 def menusel_role(typ, rawtext, text, lineno, inliner, options={}, content=[]):
     text = utils.unescape(text)
     if True or typ == 'menuselection':
-        text = text.replace('-->', '\u2023')
+        text = text.replace('-->', u'\u2023')
     spans = _amp_re.split(text)
 
     node = nodes.emphasis(rawtext=rawtext)
@@ -54,7 +54,7 @@ def emph_literal_role(typ, rawtext, text, lineno, inliner,
     text = utils.unescape(text)
     retnode = nodes.compound(role=typ.lower(), classes=[typ])
 #    retnode = nodes.literal(role=typ.lower(), classes=[typ])
-    buffer = "" # contains text being accumulated for next node
+    buffer = u"" # contains text being accumulated for next node
     in_escape = False # True if next char is part of escape sequence
     in_var = False # True if parsing variable section instead of plain text
     var_start = None # marks start of var section if in_var is True
@@ -74,28 +74,28 @@ def emph_literal_role(typ, rawtext, text, lineno, inliner,
             i += 1 # account for extra escape char in rawtext
         elif in_var:
             # parsing variable section
-            if c == "{":
+            if c == u"{":
                 return make_error(i, "unescaped '{'")
-            elif c == "}":
+            elif c == u"}":
                 # finalize variable section, return to plaintext
                 if not buffer:
                     return make_error(i-1, "empty variable section")
 #                retnode += nodes.emphasis(buffer, buffer)
                 retnode += nodes.emphasis(buffer, "<%s>"%buffer, classes=['emphasis'])
-                buffer = ""
+                buffer = u""
                 in_var = False
             else:
                 buffer += c
         else:
             # parsing plaintext section
-            if c == "{":
+            if c == u"{":
                 # finalize plaintext section, start variable section
                 if buffer:
                     retnode += nodes.literal(buffer, buffer)
-                buffer = ""
+                buffer = u""
                 in_var = True
                 var_start = i
-            elif c == "}":
+            elif c == u"}":
                 return make_error(i, "unescaped '}'")
             else:
                 buffer += c
@@ -141,7 +141,7 @@ class AnswerDirective(rst.Directive):
             return [nodes.line(), score, nodes.line()] + container.children
         # EMPTY ANSWER
         ns = [nodes.line(), nodes.line(text=self.options.get('text', 'Solution:'))]
-        ns.extend(nodes.paragraph() for x in range( int(self.options.get('height', 20)) ))
+        ns.extend(nodes.paragraph() for x in xrange( int(self.options.get('height', 20)) ))
         return ns
 
 class ChoiceDirective(rst.Directive):
@@ -163,12 +163,12 @@ class ChoiceDirective(rst.Directive):
         # ANSWER MODE
         if 'ANS' in os.environ or self.options.get('force', None):
             if 'correct' in self.options:
-                pfx = nodes.line(text='\u00A0\u25A3\u00A0\u00A0')
+                pfx = nodes.line(text=u'\u00A0\u25A3\u00A0\u00A0')
             else:
-                pfx = nodes.line(text='\u00A0\u25A2\u00A0\u00A0')
+                pfx = nodes.line(text=u'\u00A0\u25A2\u00A0\u00A0')
         else:
             # EMPTY ANSWER
-            pfx = nodes.line(text='\u00A0\u25A2\u00A0\u00A0')
+            pfx = nodes.line(text=u'\u00A0\u25A2\u00A0\u00A0')
         container.children[0].insert(0,  pfx)
         return container.children
 
