@@ -1,4 +1,15 @@
+from codecs import open
 from setuptools import setup, find_packages
+
+extra_files = []
+for theme in 'default classic overclock'.split():
+    extra_files.extend([
+        theme + '/html/*.css',
+        theme + '/html/*.html',
+        theme + '/pdf/*.style',
+        theme + '/odt/*.odt',
+        theme + '/fonts/*.ttf'
+    ])
 
 setup(
     name="2lazy2rest",
@@ -12,12 +23,7 @@ setup(
     scripts=['mkrst'],
     packages=find_packages(),
     package_data={
-            'mkrst_themes': [
-                'default/html/*.css',
-                'default/html/*.html',
-                'default/pdf/*.style',
-                'default/odt/*.odt'
-                ],
+            'mkrst_themes': extra_files,
         },
     include_package_data=True,
     url='https://github.com/fdev31/2lazy2rest',
