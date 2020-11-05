@@ -27,7 +27,11 @@ class CommandExecutor:
         self._extensions = opts.ext
 
     def set_theme(self, path, name):
-        self.theme_dir = os.path.join(path, name)
+        if os.path.exists(name):
+            self.theme_dir = os.path.abspath(name)
+        else:
+            self.theme_dir = os.path.join(path, name)
+        print('Using %s'%self.theme_dir)
 
     def _list_resources(self, origin, extension):
         r = []
