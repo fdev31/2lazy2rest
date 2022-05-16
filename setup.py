@@ -31,6 +31,7 @@ setup(
     keywords=[],
     install_requires=[
             'docutils >= 0.12',
+            'rst2pdf',
         ],
     classifiers=[
         'Environment :: Console',
