@@ -72,7 +72,7 @@ class CommandExecutor:
         opts += ['--font-path', os.path.join(self.theme_dir, 'fonts')]
 
         args = ['rst2pdf', '--fit-background-mode=scale', '--use-floating-images', '--real-footnotes', '-e', 'preprocess'] + opts
-        for style in self._list_resources('pdf', '.style'):
+        for style in self._list_resources('pdf', '.yaml'):
             args.extend(('-s', style))
         if self._extensions:
             args.extend(('-e', self._extensions))
