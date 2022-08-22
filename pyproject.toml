@@ -22,6 +22,22 @@ rst2pdf = "^0.99"
 
 [tool.poetry.dev-dependencies]
 
+[tool.black]
+line-length = 120
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+
+
+[tool.mypy]
+strict = true
+plugins = "pydantic.mypy"
+warn_return_any = true
+warn_unused_configs = true
+warn_unused_ignores = true
+warn_unreachable = true
+
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
