@@ -149,9 +149,7 @@ class AnswerDirective(rst.Directive):
             return [nodes.line(), score, nodes.line()] + container.children
         # EMPTY ANSWER
         ns = [nodes.line(), nodes.line(text=self.options.get("text", "Solution:"))]
-        ns.extend(
-            nodes.paragraph() for x in xrange(int(self.options.get("height", 20)))
-        )
+        ns.extend(nodes.paragraph() for x in xrange(int(self.options.get("height", 20))))
         return ns
 
 

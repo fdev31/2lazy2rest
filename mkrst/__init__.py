@@ -20,19 +20,19 @@ class CommandExecutor:
 
     GENERAL_OPTIONS = ["--syntax-highlight=short", "--smart-quotes=yes"]
 
-    def __init__(self, opts):
-        self._src = opts.input
-        self._verbose = opts.verbose
-        self._extensions = opts.ext
+    def __init__(self, opts: argparse.Namespace):
+        self._src: str = opts.input
+        self._verbose: bool = opts.verbose
+        self._extensions: str = opts.ext
 
-    def set_theme(self, path, name):
+    def set_theme(self, path: str, name: str) -> None:
         if os.path.exists(name):
             self.theme_dir = os.path.abspath(name)
         else:
             self.theme_dir = os.path.join(path, name)
         print("Using %s" % self.theme_dir)
 
-    def _list_resources(self, origin, extension):
+    def _list_resources(self, origin: str, extension: str) -> list[str]:
         r = []
         for fname in os.listdir(os.path.join(self.theme_dir, origin)):
             if fname.endswith(extension):
@@ -42,16 +42,16 @@ class CommandExecutor:
             print("List(*%s) = %s" % (extension, ", ".join(r)))
         return r
 
-    def get_output(self, fmt):
+    def get_output(self, fmt: str) -> str:
         return self._src.rsplit(".", 1)[0] + "." + fmt
 
-    def __execute(self, args):
+    def __execute(self, args: list[str]) -> None | tuple[bytes, bytes]:
         if DEBUG:
             print("Executing %s" % " ".join(args))
         proc = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         out, err = proc.communicate()
 
-        def show_result():
+        def show_result() -> None:
             print("\nStdout:")
             print(out.decode("utf-8").strip())
             print("\nStderr:")
@@ -64,8 +64,9 @@ class CommandExecutor:
         else:
             print(" PROBLEM! ".center(80, "#"))
             show_result()
+            return None
 
-    def make_pdf(self):
+    def make_pdf(self) -> None:
         out = self.get_output("pdf")
         opts = [o for o in self.GENERAL_OPTIONS if "syntax" not in o]
         opts += ["--font-path", os.path.join(self.theme_dir, "fonts")]
@@ -86,25 +87,17 @@ class CommandExecutor:
         if self.__execute(args):
             print(out)
 
-    def make_odt(self):
+    def make_odt(self) -> None:
         out = self.get_output("odt")
         css = self._list_resources("odt", "odt")[0]
-        args = (
-            ["rst2odt"]
-            + self.GENERAL_OPTIONS
-            + ["--add-syntax-highlighting", "--stylesheet", css, self._src, out]
-        )
+        args = ["rst2odt"] + self.GENERAL_OPTIONS + ["--add-syntax-highlighting", "--stylesheet", css, self._src, out]
         if self.__execute(args):
             print(out)
 
-    def make_html(self):
+    def make_html(self) -> None:
         out = self.get_output("html")
         css = ",".join(self._list_resources("html", "css"))
-        args = (
-            ["rst2html"]
-            + self.GENERAL_OPTIONS
-            + ["--embed-stylesheet", "--stylesheet-path", css, self._src, out]
-        )
+        args = ["rst2html"] + self.GENERAL_OPTIONS + ["--embed-stylesheet", "--stylesheet-path", css, self._src, out]
         if self.__execute(args):
             print(out)
         # post process
@@ -115,12 +108,10 @@ class CommandExecutor:
             open(out, "w").write(data)
 
 
-def main():
+def main() -> None:
     parser = argparse.ArgumentParser()
 
-    parser.add_argument(
-        "-v", "--verbose", action="store_true", help="Display commands' output"
-    )
+    parser.add_argument("-v", "--verbose", action="store_true", help="Display commands' output")
 
     parser.add_argument(
         "input",
@@ -131,13 +122,9 @@ def main():
     )
 
     for fmt in SUPPORTED_FORMATS:
-        parser.add_argument(
-            "--%s" % fmt, action="store_true", help="Generate %s output" % fmt.upper()
-        )
+        parser.add_argument("--%s" % fmt, action="store_true", help="Generate %s output" % fmt.upper())
 
-    parser.add_argument(
-        "-t", "--theme", type=str, default=THEME, help="Use a different theme"
-    )
+    parser.add_argument("-t", "--theme", type=str, default=THEME, help="Use a different theme")
 
     parser.add_argument(
         "--themes-dir",
@@ -146,13 +133,9 @@ def main():
         help="Change the folder searched for theme",
     )
 
-    parser.add_argument(
-        "--ext", type=str, default="", help="Load docutils extensions (coma separated)"
-    )
+    parser.add_argument("--ext", type=str, default="", help="Load docutils extensions (coma separated)")
 
-    parser.add_argument(
-        "-l", "--list", action="store_true", help="List available themes"
-    )
+    parser.add_argument("-l", "--list", action="store_true", help="List available themes")
 
     args = parser.parse_args()
 
