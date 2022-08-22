@@ -144,7 +144,7 @@ def main() -> None:
 
     if args.list:
         for t in os.listdir(THEMES_DIR):
-            if os.path.isdir(os.path.join(THEMES_DIR, t)):
+            if t[0] not in '_.' and os.path.isdir(os.path.join(THEMES_DIR, t)):
                 print(t)
     elif not any(getattr(args, fmt) for fmt in SUPPORTED_FORMATS):
         print("No action ! Give one or more --(%s)" % "|".join(SUPPORTED_FORMATS))
