@@ -1,10 +1,10 @@
 [tool.poetry]
 name = "2lazy2rest"
-version = "0.1.1"
+version = "0.1.2"
 description = "Effortless generation of PDF, HTML & ODT documents from RST (ReStructuredText)"
 authors = ["fdev31 <fdev31@gmail.com>"]
 license = "MIT"
-
+readme = "README.rst"
 packages = [
     { include = "mkrst" },
     { include = "mkrst_themes" },
