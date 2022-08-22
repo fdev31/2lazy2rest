@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "2lazy2rest"
+version = "0.1.1"
+description = "Effortless generation of PDF, HTML & ODT documents from RST (ReStructuredText)"
+authors = ["fdev31 <fdev31@gmail.com>"]
+license = "MIT"
+
+packages = [
+    { include = "mkrst" },
+    { include = "mkrst_themes" },
+]
+
+
+[tool.poetry.scripts]
+mkrst = 'mkrst:main'
+
+
+[tool.poetry.dependencies]
+python = "^3.8"
+docutils = ">=0.10"
+rst2pdf = "^0.99"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
