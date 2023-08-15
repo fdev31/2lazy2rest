@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "2lazy2rest"
-version = "0.1.2"
+version = "0.2.2"
 description = "Effortless generation of PDF, HTML & ODT documents from RST (ReStructuredText)"
 authors = ["fdev31 <fdev31@gmail.com>"]
 license = "MIT"
